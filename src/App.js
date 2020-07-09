@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { AutoComplete } from './components/autocomplete'
+import { GlobalStyle } from './globalStyles'
+import styled from 'styled-components'
+
+const AppContainer = styled.div`
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+`
+
+const PageTitle = styled.h2`
+    color: #fff;
+    display: block;
+    margin-bottom: 25px;
+    opacity: 0.6;
+`
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <AppContainer>
+            <GlobalStyle />
+            <PageTitle>Autocomplete component</PageTitle>
+            <AutoComplete />
+        </AppContainer>
+    )
 }
 
-export default App;
+export default App
