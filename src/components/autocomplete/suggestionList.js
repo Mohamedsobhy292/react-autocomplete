@@ -9,7 +9,7 @@ const SuggestionList = ({
     suggestionListIsOpen,
     pointer,
 }) => {
-    const inputEl = useRef()
+    const ListContainer = useRef()
 
     const renderSuggestion = (suggestion) => {
         if (!value) return suggestion
@@ -26,27 +26,25 @@ const SuggestionList = ({
         return result
     }
 
-    useScrollToSelectedElement(inputEl, pointer, suggestions)
+    useScrollToSelectedElement(ListContainer, pointer, suggestions)
 
     return (
-        !!suggestions?.length && (
-            <SuggestionsList isActive={suggestionListIsOpen} ref={inputEl}>
-                {suggestions.map((suggestion, index) => {
-                    return (
-                        <SuggestionsItem
-                            focused={pointer === index}
-                            onClick={() => {
-                                handleOptionClick(suggestions[index])
-                            }}
-                            key={suggestion}
-                            dangerouslySetInnerHTML={{
-                                __html: renderSuggestion(suggestion),
-                            }}
-                        ></SuggestionsItem>
-                    )
-                })}
-            </SuggestionsList>
-        )
+        <SuggestionsList isActive={suggestionListIsOpen} ref={ListContainer}>
+            {suggestions.map((suggestion, index) => {
+                return (
+                    <SuggestionsItem
+                        focused={pointer === index}
+                        onClick={() => {
+                            handleOptionClick(suggestions[index])
+                        }}
+                        key={suggestion}
+                        dangerouslySetInnerHTML={{
+                            __html: renderSuggestion(suggestion),
+                        }}
+                    ></SuggestionsItem>
+                )
+            })}
+        </SuggestionsList>
     )
 }
 

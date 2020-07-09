@@ -55,15 +55,13 @@ const AutoComplete = () => {
                 onKeyDown={handleTyping}
             />
 
-            {
-                <SuggestionList
-                    pointer={pointer}
-                    handleOptionClick={setValue}
-                    suggestions={filteredSuggestions}
-                    value={inputValue}
-                    suggestionListIsOpen={suggestionListIsOpen}
-                />
-            }
+            <SuggestionList
+                pointer={pointer}
+                handleOptionClick={setValue}
+                suggestions={filteredSuggestions}
+                value={inputValue}
+                suggestionListIsOpen={suggestionListIsOpen}
+            />
         </AutoCompleteContainer>
     )
 }

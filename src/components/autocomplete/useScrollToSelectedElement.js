@@ -1,23 +1,23 @@
 import { useEffect } from 'react'
 
-const useScrollToSelectedElement = (inputEl, pointer, suggestions) => {
+const useScrollToSelectedElement = (ListContainer, pointer, suggestions) => {
     useEffect(() => {
-        const children = inputEl.current?.children
+        const children = ListContainer.current?.children
         let top = []
         if (children) {
-            const options = [...inputEl.current?.children]
+            const options = [...ListContainer.current?.children]
             top = options.map((option) => option.offsetTop)
         }
 
         if (
             top[pointer] &&
             top[pointer] >
-                inputEl.current.scrollTop +
-                    (inputEl.current.getBoundingClientRect().height - 20)
+                ListContainer.current.scrollTop +
+                    (ListContainer.current.getBoundingClientRect().height - 20)
         ) {
-            inputEl.current.scrollTop += 160
+            ListContainer.current.scrollTop += 180
         }
-    }, [suggestions, pointer, inputEl])
+    }, [suggestions, pointer, ListContainer])
 }
 
 export { useScrollToSelectedElement }
