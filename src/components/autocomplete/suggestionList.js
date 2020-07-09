@@ -8,6 +8,7 @@ const SuggestionList = ({
     handleOptionClick,
     suggestionListIsOpen,
     pointer,
+    setPotentialValue,
 }) => {
     const ListContainer = useRef()
 
@@ -28,11 +29,24 @@ const SuggestionList = ({
 
     useScrollToSelectedElement(ListContainer, pointer, suggestions)
 
+    const handleMouseEnter = (index) => {
+        setPotentialValue(suggestions[index])
+    }
+
+    const handleMouseLeave = (index) => {
+        setPotentialValue(null)
+    }
+
     return (
-        <SuggestionsList isActive={suggestionListIsOpen} ref={ListContainer}>
+        <SuggestionsList
+            isActive={suggestionListIsOpen && !!suggestions.length}
+            ref={ListContainer}
+        >
             {suggestions.map((suggestion, index) => {
                 return (
                     <SuggestionsItem
+                        onMouseEnter={() => handleMouseEnter(index)}
+                        onMouseLeave={() => handleMouseLeave(index)}
                         focused={pointer === index}
                         onClick={() => {
                             handleOptionClick(suggestions[index])

@@ -10,6 +10,7 @@ const AutoComplete = () => {
     const [suggestionListIsOpen, setSuggestionListIsOpen] = useState(false)
     const [pointer, setPointer] = useState(0)
     const filteredSuggestions = filterSuggestions(inputValue)
+    const [potentialValue, setPotentialValue] = useState(null)
 
     const onChange = (e) => {
         setInputValue(e.target.value)
@@ -45,17 +46,20 @@ const AutoComplete = () => {
     const setValue = (value) => {
         setInputValue(value)
         setSuggestionListIsOpen(false)
+        setPotentialValue(false)
     }
 
     return (
         <AutoCompleteContainer>
             <InputField
-                value={inputValue}
+                potentialValue={!!potentialValue}
+                value={potentialValue || inputValue}
                 onChange={onChange}
                 onKeyDown={handleTyping}
             />
 
             <SuggestionList
+                setPotentialValue={setPotentialValue}
                 pointer={pointer}
                 handleOptionClick={setValue}
                 suggestions={filteredSuggestions}

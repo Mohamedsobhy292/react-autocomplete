@@ -15,7 +15,7 @@ const useScrollToSelectedElement = (ListContainer, pointer, suggestions) => {
                 ListContainer.current.scrollTop +
                     (ListContainer.current.getBoundingClientRect().height - 20)
         ) {
-            ListContainer.current.scrollTop += 180
+            ListContainer.current.scrollTop = top[pointer] - 40
         }
     }, [suggestions, pointer, ListContainer])
 }
