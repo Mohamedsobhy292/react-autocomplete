@@ -2,7 +2,7 @@ import React from 'react'
 import { AutoComplete } from './components/autocomplete'
 import { GlobalStyle } from './globalStyles'
 import styled from 'styled-components'
-import { suggestions } from './components/autocomplete/suggestions'
+import { suggestions } from './suggestions'
 
 const AppContainer = styled.div`
     display: flex;
