@@ -5,11 +5,11 @@ import { SuggestionList } from './suggestionList'
 import { AutoCompleteContainer } from './autoCompleteStyles'
 import { filterSuggestions } from './helpers'
 
-const AutoComplete = () => {
+const AutoComplete = ({ options }) => {
     const [inputValue, setInputValue] = useState('')
     const [suggestionListIsOpen, setSuggestionListIsOpen] = useState(false)
     const [pointer, setPointer] = useState(0)
-    const filteredSuggestions = filterSuggestions(inputValue)
+    const filteredSuggestions = filterSuggestions(options, inputValue)
     const [potentialValue, setPotentialValue] = useState(null)
 
     const onChange = (e) => {

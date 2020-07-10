@@ -1,4 +1,7 @@
-steps
+how to start
+run `yarn start` on your terminal
+
+requirements
 
 -   [x] build input field
 -   [x] build list of suggestion
@@ -6,4 +9,4 @@ steps
 -   [x] set the value of input on click of any element
 -   [x] add keyup and down functionality, enter functianlity
 -   [x] add hover effect
--   [ ] add some testing
+-   [x] adde testing

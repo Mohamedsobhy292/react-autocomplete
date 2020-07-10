@@ -39,6 +39,7 @@ const SuggestionList = ({
 
     return (
         <SuggestionsList
+            data-testid="suggestion-list"
             isActive={suggestionListIsOpen && !!suggestions.length}
             ref={ListContainer}
         >

@@ -1,5 +1,3 @@
-import { suggestions } from './suggestions'
-
 export const fuzzuyMatch = (search, option) => {
     if (!search) return false
     search = search.toLowerCase().replace(/\s/g)
@@ -15,7 +13,7 @@ export const fuzzuyMatch = (search, option) => {
     return true
 }
 
-export const filterSuggestions = (inputValue) => {
+export const filterSuggestions = (suggestions, inputValue) => {
     return suggestions.filter((suggestion) => {
         return fuzzuyMatch(inputValue, suggestion)
     })
