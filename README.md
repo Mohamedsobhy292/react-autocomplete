@@ -1,5 +1,8 @@
 how to start
-run `yarn start` on your terminal
+
+-   run `yarn start` on your terminal
+
+for Demo check : https://warm-caverns-74514.herokuapp.com/
 
 requirements
 
